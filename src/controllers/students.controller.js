@@ -27,6 +27,7 @@ const postNewStudent = async (req, res) => {
     const notAllowedMsg = 'Sinto muito, apenas aceitamos novos alunos na DDS-10';
     const invalidCepMsg = 'CEP inválido, logo não poderemos prosseguir com a criação do aluno, favor mandar um CEP válido'
 
+    const alreadyCreated = 'Aluno já cadastrado'
     const invalidName = 'O campo name e lastName devem conter entre 1 e 13 caracteres alfabéticos';
     const invalidAge = 'A idade deve ser numérico';
     const invalidClassName = 'O ClassName deve adotar o padrão: "DDS-XX" onde XX devem ser substituídos por números entre 0 e 99';
@@ -36,8 +37,13 @@ const postNewStudent = async (req, res) => {
     if (!name || !lastName || !age || !className || !cep || !number) {
         return res.status(400).json(incompleteInfoMsg);
     }
+
+    const { students } = await getAllStudentsFromDb();
+    const student = await students.find(student => student.name === name);
+    if (!!student) return res.status(406).json(alreadyCreated)
+
     if (className !== 'DDS-10') {
-        return res.status(400).json(notAllowedMsg);
+        return res.status(412).json(notAllowedMsg);
     }
 
     const isNameOk = name.length > 0 && name.length <= 13;
@@ -68,6 +74,8 @@ const postNewStudent = async (req, res) => {
         default:
             break;
     }
+
+    //TODO - add o aluno na db, fazer um id auto incrementável
     res.send('oi')
 
 }
