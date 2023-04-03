@@ -1,0 +1,125 @@
+{
+    "students": [
+        {
+            "id": 1,
+            "name": "John",
+            "lastName": "Armless",
+            "age": 20,
+            "class": "DDS-10",
+            "address": {
+                "postalCode": "05397120",
+                "number": 65
+            }
+        },
+        {
+            "id": 2,
+            "name": "Alice",
+            "lastName": "Wonderland",
+            "age": 19,
+            "class": "DDS-10",
+            "address": {
+                "postalCode": "04567010",
+                "number": 102
+            }
+        },
+        {
+            "id": 3,
+            "name": "Bob",
+            "lastName": "Builder",
+            "age": 22,
+            "class": "DDS-11",
+            "address": {
+                "postalCode": "03214050",
+                "number": 17
+            }
+        },
+        {
+            "id": 4,
+            "name": "Charlie",
+            "lastName": "Chaplin",
+            "age": 25,
+            "class": "DDS-11",
+            "address": {
+                "postalCode": "04101120",
+                "number": 89
+            }
+        },
+        {
+            "id": 5,
+            "name": "David",
+            "lastName": "Dobrik",
+            "age": 21,
+            "class": "DDS-12",
+            "address": {
+                "postalCode": "05468080",
+                "number": 24
+            }
+        },
+        {
+            "id": 6,
+            "name": "Emily",
+            "lastName": "Bronte",
+            "age": 18,
+            "class": "DDS-12",
+            "address": {
+                "postalCode": "03235040",
+                "number": 51
+            }
+        },
+        {
+            "id": 7,
+            "name": "Frank",
+            "lastName": "Sinatra",
+            "age": 23,
+            "class": "DDS-13",
+            "address": {
+                "postalCode": "04675090",
+                "number": 75
+            }
+        },
+        {
+            "id": 8,
+            "name": "Grace",
+            "lastName": "Hopper",
+            "age": 24,
+            "class": "DDS-13",
+            "address": {
+                "postalCode": "04501020",
+                "number": 34
+            }
+        },
+        {
+            "id": 9,
+            "name": "Henry",
+            "lastName": "Cavill",
+            "age": 20,
+            "class": "DDS-14",
+            "address": {
+                "postalCode": "04124030",
+                "number": 42
+            }
+        },
+        {
+            "id": 10,
+            "name": "Isabel",
+            "lastName": "Allende",
+            "age": 19,
+            "class": "DDS-14",
+            "address": {
+                "postalCode": "05443100",
+                "number": 11
+            }
+        },
+        {
+            "id": 11,
+            "name": "Jack",
+            "lastName": "Nicholson",
+            "age": 22,
+            "class": "DDS-15",
+            "address": {
+                "postalCode": "04323020",
+                "number": 73
+            }
+        }
+    ]
+}

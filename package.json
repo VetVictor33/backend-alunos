@@ -1,0 +1,17 @@
+{
+  "name": "backend-alunos",
+  "version": "1.0.0",
+  "description": "projeto backend realizado como desafio para revisão",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
