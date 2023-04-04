@@ -4,7 +4,7 @@ const findCep = require("./commun")
 
 
 const greetings = (req, res) => {
-    return res.send('Hello, World! AI will ruin us all.')
+    return res.send({ message: 'Hello, World! AI will ruin us all.' })
 }
 
 
@@ -17,7 +17,7 @@ const getStudentById = async (req, res) => {
     const { id } = req.params;
     const student = await getStudentByIdFromDb(id);
     if (!!!student) {
-        return res.status(404).json(`Não existe estudante com id ${id}`);
+        return res.status(404).json({ message: `Não existe estudante com id ${id}` });
     }
     return res.status(200).json(student);
 }
@@ -35,13 +35,13 @@ const postNewStudent = async (req, res) => {
 
     const { name, lastName, age, className, postalCode: cep, number } = req.query;
     if (!name || !lastName || !age || !className || !cep || !number) {
-        return res.status(400).json(incompleteInfoMsg);
+        return res.status(400).json({ message: incompleteInfoMsg });
     }
 
     const { students } = await getAllStudentsFromDb();
     const student = await students.find(student => student.name === name);
 
-    if (!!student) return res.status(406).json(alreadyCreated)
+    if (!!student) return res.status(406).json({ message: alreadyCreated })
 
     if (className !== 'DDS-10') {
         return res.status(412).json(notAllowedMsg);
@@ -56,28 +56,28 @@ const postNewStudent = async (req, res) => {
 
     switch (true) {
         case (!isNameOk):
-            return res.status(400).json(invalidName);
+            return res.status(400).json({ message: invalidName });
 
         case (!isLastNameOk):
-            return res.status(400).json(invalidName);
+            return res.status(400).json({ message: invalidName });
 
         case (!isAgeOk):
-            return res.status(400).json(invalidAge);
+            return res.status(400).json({ message: invalidAge });
 
         case (!isClassNameOk):
-            return res.status(400).json(invalidClassName);
+            return res.status(400).json({ message: invalidClassName });
 
         case (!!!isCepOk):
-            return res.status(400).json(invalidCepMsg)
+            return res.status(400).json({ message: invalidCepMsg })
 
         case (!isNumberOk):
-            return res.status(400).json(invalidNumber);
+            return res.status(400).json({ message: invalidNumber });
         default:
             break;
     }
 
     //TODO - add o aluno na db, fazer um id auto incrementável
-    return res.status(201).json('Aluno adicionado na base de dados com sucesso!')
+    return res.status(201).json({ message: 'Aluno adicionado na base de dados com sucesso!' })
 
 }
 

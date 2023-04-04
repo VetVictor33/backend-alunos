@@ -4,7 +4,7 @@ const { greetings, getAllStudents, getStudentById, postNewStudent } = require('.
 const routes = express();
 
 routes.get('/', greetings);
-routes.get('/students/', getAllStudents);
+routes.get('/students', getAllStudents);
 routes.get('/students/:id', getStudentById);
 routes.post('/students', postNewStudent);
 
