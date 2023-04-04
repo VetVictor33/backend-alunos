@@ -33,8 +33,12 @@ const postNewStudent = async (req, res) => {
     const invalidClassName = 'O ClassName deve adotar o padrão: "DDS-XX" onde XX devem ser substituídos por números entre 0 e 99';
     const invalidNumber = 'Number deve ser numérico'
 
-    const { name, lastName, age, className, postalCode: cep, number } = req.query;
-    if (!name || !lastName || !age || !className || !cep || !number) {
+    const { name, lastName, age, className, adress } = req.body;
+    if (!name || !lastName || !age || !className || !adress) {
+        return res.status(400).json({ message: incompleteInfoMsg });
+    }
+    const { postalCode: cep, number } = adress;
+    if (!cep || !number) {
         return res.status(400).json({ message: incompleteInfoMsg });
     }
 
