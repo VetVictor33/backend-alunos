@@ -6,7 +6,7 @@ const routes = express();
 routes.get('/', greetings);
 routes.get('/students/', getAllStudents);
 routes.get('/students/:id', getStudentById);
-routes.post('/newstudend', postNewStudent);
+routes.post('/students', postNewStudent);
 
 
 module.exports = routes;

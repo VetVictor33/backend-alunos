@@ -4,22 +4,22 @@ const findCep = require("./commun")
 
 
 const greetings = (req, res) => {
-    res.send('Hello, World! AI will ruin us all.')
+    return res.send('Hello, World! AI will ruin us all.')
 }
 
 
 const getAllStudents = async (req, res) => {
     const response = await getAllStudentsFromDb()
-    res.status(200).json(response)
+    return res.status(200).json(response)
 }
 
 const getStudentById = async (req, res) => {
     const { id } = req.params;
     const student = await getStudentByIdFromDb(id);
     if (!!!student) {
-        return res.status(204);
+        return res.status(404).json(`Não existe estudante com id ${id}`);
     }
-    res.status(200).json(student);
+    return res.status(200).json(student);
 }
 
 const postNewStudent = async (req, res) => {
@@ -40,6 +40,7 @@ const postNewStudent = async (req, res) => {
 
     const { students } = await getAllStudentsFromDb();
     const student = await students.find(student => student.name === name);
+
     if (!!student) return res.status(406).json(alreadyCreated)
 
     if (className !== 'DDS-10') {
@@ -76,7 +77,7 @@ const postNewStudent = async (req, res) => {
     }
 
     //TODO - add o aluno na db, fazer um id auto incrementável
-    res.send('oi')
+    return res.status(201).json('Aluno adicionado na base de dados com sucesso!')
 
 }
 
